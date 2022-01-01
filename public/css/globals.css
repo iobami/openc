@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
+
+:root {
+  --bg-main: rgb(32, 34, 37);
+  --bg-second: rgb(4, 17, 29);
+  --tx-main: rgb(255, 255, 255);
+  --tx-second: #5F5F6E;
+  --bg-grey:#DDE1E8;
+  --bg-shadow: rgb(4 17 29 / 25%);
+
+  --base: rgb(32, 129, 226);
+
+  --tx-rgb: 255, 255, 255;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Poppins', sans-serif;
+
+  height: 100%;
+  min-height: 100%;
+
+  background-color: var(--bg-main);
+  color: var(--tx-main);
+  font-size: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#__next {
+  height: 100%;
+  min-height: 100%;
+}
+
+.app-main {
+  min-height: 100%;
+  background-color: var(--bg-main);
+  padding: 0 16px;
+  padding-top: 72px;
+}
+
+/* HEADER SECTION */
+.app-nav-wrapper {
+  box-shadow: var(--bg-shadow) 0px 0px 8px 0px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: var(--bg-second);
+}
+
+.app-nav {
+  display: flex;
+  height: fit-content;
+  justify-content: space-between;
+  align-content: center;
+  padding: 0 16px;
+}
+
+.app-nav__routes-and-actions {
+  padding: 16px 0;
+
+}
+
+.app-nav__routes-and-actions__routes__a {
+  padding: 0 20px;
+  color: rgba(var(--tx-rgb), 0.75);
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s ease-in-out;
+  position: relative;
+}
+
+.app-nav__routes-and-actions__routes__a--active,
+.app-nav__routes-and-actions__routes__a:hover {
+  color: rgba(var(--tx-rgb), 1);
+}
+
+.app-nav__routes-and-actions__routes__a--active::after {
+  background-color: var(--base);
+}
+
+.app-nav__routes-and-actions__routes__a--active::after {
+  transition: background-color 0.4s ease 0s;
+  bottom: -22px;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.app-nav__routes-and-actions__actions svg {
+  margin: 0 20px;
+  color: rgba(var(--tx-rgb), 0.65);
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.app-nav__routes-and-actions__actions svg:hover {
+  color: rgba(var(--tx-rgb), 0.95);
+}
+
+.app-nav__routes-and-actions__actions svg:last-child {
+  margin-right: 0;
+}
+/* HEADER SECTION ENDS */
+
+/* CATEGORIES SECTION */
+.categories-section__ul {
+  padding: 0px 8px;
+  list-style: none;
+  margin: 2rem 0;
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.categories-section__li {
+  padding: 12px 0;
+}
+
+.categories-section__li__a {
+  padding: 0 20px;
+  height: 100%;
+  color: rgba(var(--tx-rgb), 0.75);
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s ease-in-out;
+  position: relative;
+  text-transform: capitalize;
+}
+
+.categories-section__li__a--active, .categories-section__li__a:hover {
+  color: rgba(var(--tx-rgb), 1);
+}
+
+.categories-section__li__a--active::after {
+  transition: background-color 0.4s ease 0s;
+  bottom: -10px;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.categories-section__li__a--active::after {
+  background-color: var(--base);
+}
+/* CATEGORIES SECTION ENDS */
+
+/* MARKET SECTION */
+.market-section {
+  padding: 35px 0;
+}
+
+.market-section__h1-title {
+  color: var(--tx-main);
+}
+
+.items-grid-wrapper {
+  display: grid;
+  gap: 2rem;
+  column-gap: 2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.items-grid-wrapper__item {
+  height: 365px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.items-grid-wrapper__item__img {
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.items-grid-wrapper__item__content {
+  position: absolute;
+  bottom: 0;
+  height: 110px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 0 0 10px 10px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  transition-delay: 0.15s;
+  transition: 0.5s ease;
+  text-align: center;
+}
+
+.items-grid-wrapper__item__content__p {
+  opacity: 0.8;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* MARKET SECTION ENDS */
+
+.app-nav,
+.app-main {
+  width: 90%;
+}
