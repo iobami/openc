@@ -159,6 +159,32 @@ html {
 .categories-section__li__a--active::after {
   background-color: var(--base);
 }
+
+.categories-section__ul::-webkit-scrollbar {
+  width: 0;
+  height: 3px;
+}
+
+.categories-section__ul::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.categories-section__ul::-webkit-scrollbar-thumb {
+  background: transparent;
+  height: 10px;
+  border-radius: 4px;
+  border-bottom-right-radius: 0;
+}
+
+.categories-section__ul::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+  transition-delay: 0.15s;
+}
 /* CATEGORIES SECTION ENDS */
 
 /* MARKET SECTION */
@@ -204,8 +230,18 @@ html {
   text-align: center;
 }
 
+.items-grid-wrapper__item__content__h5 {
+  display: -webkit-box;
+  max-width: calc(100% - 24px);
+  margin-top: 1px;
+  margin-right: 4px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .items-grid-wrapper__item__content__p {
-  opacity: 0.8;
+  opacity: 0.9;
   display: -webkit-box;
   max-width: 100%;
   -webkit-line-clamp: 2;

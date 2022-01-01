@@ -1,10 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { CollectionType } from '../../utils';
 import data from '../../utils/mock.json';
 
-type CollectionsType = ReturnType<() => typeof data.top>;
-
 interface ICollections {
-  [key: string]: CollectionsType;
+  [key: string]: Array<CollectionType>;
 }
 
 const collections: ICollections = data;
