@@ -22,8 +22,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
   const hasQuery = !!Object.entries(query).length;
 
   if (hasQuery && (typeof query.category === 'string')) {
-    readCategory(res, query.category);
+    return readCategory(res, query.category);
   }
 
-  res.status(200).json({ data: { collections } });
+  return res.status(200).json({ data: { collections } });
 }

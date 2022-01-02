@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CategoriesList } from '../components';
+import { CategoriesList, NftCard } from '../components';
 import { action, selector } from '../redux/entities/collections';
 import { CollectionType } from '../utils';
 
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       </Head>
 
       <section className="market-section">
-        <h1 className="market-section__h1-title text-center text-5xl font-bold mb-10">
+        <h1 className="market-section__h1-title text-center text-3xl lg:text-5xl xl:text-7xl font-bold mb-10">
           Market Place
         </h1>
 
@@ -41,22 +41,8 @@ const Home: NextPage = () => {
 
         <div className="items-grid-wrapper">
           {data.map((item: CollectionType) => {
-            if (typeof item !== 'string' && typeof item.node !== 'number') {
-              return (
-                <a className="items-grid-wrapper__item" href="/" key={item.cursor}>
-                  <img className="items-grid-wrapper__item__img" height="100%" width="100%" src={item.node.banner} alt="" />
-
-                  <div className="items-grid-wrapper__item__content">
-                    <div className="flex justify-center items-center mb-4">
-                      <h5 className="items-grid-wrapper__item__content__h5 font-bold">{item.node.name || 'Unknown'}</h5>
-
-                      <img src="/imgs/verified.png" alt="verified" height={18} width={18} />
-                    </div>
-
-                    <p className="items-grid-wrapper__item__content__p">{item.node?.description || ''}</p>
-                  </div>
-                </a>
-              );
+            if (typeof item === 'object' && typeof item.node === 'object') {
+              return <NftCard item={item} key={item.node.id} />;
             }
 
             return null;
