@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { CollectionType } from '../../utils';
-import data from '../../utils/mock.json';
+import { CollectionType } from '../../../utils';
+import data from '../../../utils/mock.json';
 
 interface ICollections {
   [key: string]: Array<CollectionType>;

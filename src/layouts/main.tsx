@@ -6,7 +6,6 @@ interface IProps {
 }
 
 export default function Main({ children }: IProps) {
-
   return (
     <Fragment>
       <Header />

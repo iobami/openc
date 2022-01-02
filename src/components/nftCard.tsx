@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { CollectionType } from '../utils';
+import { CollectionType, routes } from '../utils';
 import { Coin } from './svgs';
 
 interface IProps {
@@ -15,7 +15,7 @@ export default function NftCard(props: IProps) {
   }
 
   return (
-    <Link href={`${item.node.slug}/${item.node.id}`}>
+    <Link href={`${routes.assets.path}/${item.node.slug}/${item.node.id}`}>
       <a className="items-grid-wrapper__item" href={`${item.node.slug}/${item.node.id}`}>
         <img className="items-grid-wrapper__item__img" height="100%" width="100%" src={item.node.banner} alt="" />
 
