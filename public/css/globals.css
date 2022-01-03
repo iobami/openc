@@ -8,7 +8,8 @@
   --bg-second: rgb(var(--bg-second-rgb));
   --tx-main: rgb(255, 255, 255);
   --tx-second: #5F5F6E;
-  --bg-grey:#DDE1E8;
+  --bg-grey:  rgb(53, 56, 64);
+  --bdr-grey:  rgb(21, 27, 34);
   --bg-shadow: rgb(4 17 29 / 25%);
 
   --base: rgb(32, 129, 226);
@@ -259,6 +260,145 @@ html {
   margin-top: -1px;
 }
 /* MARKET SECTION ENDS */
+
+/* ASSET DETAILS SECTION */
+.asset-details-section {
+  padding: 20px 0;
+  max-width: 100%;
+  margin: auto;
+}
+
+.asset-details-section__wrapper {
+  margin: 0 -0.75rem;
+}
+
+.asset-details-section__asset-img {
+  border-radius: 10px 10px 0 0;
+  height: 440px;
+  object-fit: cover;
+}
+
+.asset-details-section__owner {
+  color: var(--base);
+}
+
+.asset-details-section__owner-hash {
+  color: rgb(138, 147, 155);
+}
+
+.asset-details-section__owner-hash a {
+  color: var(--base);
+}
+
+.asset-details-section__owner-hash.light {
+  color: rgb(112, 122, 131);
+}
+
+.asset-details-section__card {
+  border-radius: 10px;
+  background-color: rgb(48, 51, 57);
+  border: 1px solid var(--bdr-grey);
+  color: rgb(138, 147, 155);
+}
+
+.asset-details-section__card.rt-none {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.asset-details-section__card.rb-none {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.asset-details-section__card__header,
+.asset-details-section__card__body {
+  padding: 20px;
+}
+
+.asset-details-section__card__body p {
+  color: var(--tx-main);
+}
+
+.asset-details-section__card__body a {
+  color: var(--base);
+}
+
+.asset-details-section__card__header {
+  background-color: rgb(38, 43, 47);
+  border-bottom: 1px solid rgb(21, 27, 34);
+  color: var(--tx-main);
+}
+
+.asset-details-section__card.light {
+  background-color: rgb(251, 253, 255);
+  color: rgb(112, 122, 131);
+}
+
+.asset-details-section__card__unit {
+  color: var(--tx-main);
+}
+
+.asset-details-section__card__unit svg {
+  width: 26px;
+  height: 23px;
+  margin-left: -5px;
+  margin-right: 3px;
+}
+
+.asset-details-section__card__button {
+  display: inline-flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  background-color: rgb(32, 129, 226);
+  border: 1px solid rgb(32, 129, 226);
+  color: rgb(255, 255, 255);
+  transition: all 0.2s ease 0s;
+}
+
+.asset-details-section__card__button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.asset-details-section__card__button:hover {
+  background-color: rgb(66, 160, 255);
+}
+
+.light .asset-details-section__card__button:hover {
+  background-color: var(--base);
+}
+
+.asset-details-section__card__button--offer {
+  background-color: var(--bg-grey);
+  border: 1px solid var(--bdr-grey);
+  color: rgb(229, 232, 235);
+}
+
+.asset-details-section__card__button--offer:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(76, 80, 92);
+}
+
+
+.light .asset-details-section__card__button--offer {
+  background-color: var(--bg-main);
+  border: 1px solid  rgb(32, 129, 226);
+  color:  rgb(32, 129, 226);
+}
+
+.light .asset-details-section__card__button--offer:hover {
+  border: 1px solid  var(--base);
+  color:  var(--base);
+}
+/* ASSET DETAILS SECTION ENDS */
 
 .app-nav,
 .app-main {

@@ -3,6 +3,7 @@ export const colorScheme = (scheme: string) => {
     return {
       '--bg-main': '#FFFFFF',
       '--bg-second': 'rgb(255, 255, 255)',
+      '--base': 'rgb(24, 104, 183)',
       '--tx-main': '#282B31',
       '--tx-rgb': '4, 17, 29',
     };

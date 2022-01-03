@@ -30,11 +30,19 @@
     column-gap: 2rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  .asset-details-section {
+    width: 960px;
+  }
 }
 
 @media (min-width: 1280px) {
   .items-grid-wrapper__item {
     height: 355px;
+  }
+
+  .asset-details-section {
+    width: 1160px;
   }
 }
 

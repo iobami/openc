@@ -16,3 +16,26 @@ export const allCollections: Array<CollectionType> = (() => {
 
   return newCollections;
 })();
+
+export function getParseFloat(value: any) {
+  if (Number.isNaN(Number.parseFloat(value))) {
+    return 0;
+  }
+
+  return parseFloat(value);
+}
+
+export function toNumeral(value: any) {
+  const parsedValue = getParseFloat(value);
+
+  const number = parsedValue.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  return number;
+}
+
+export function upcomingFeature() {
+  return alert('Sorry, this feature is cooking, see you soon :)');
+}
