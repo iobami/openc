@@ -6,6 +6,8 @@
 
   --bg-main: rgb(32, 34, 37);
   --bg-second: rgb(var(--bg-second-rgb));
+  --bg-alt: rgb(48, 51, 57);
+
   --tx-main: rgb(255, 255, 255);
   --tx-second: #5F5F6E;
   --bg-grey:  rgb(53, 56, 64);
@@ -13,6 +15,8 @@
   --bg-shadow: rgb(4 17 29 / 25%);
 
   --base: rgb(32, 129, 226);
+
+  --nav-height: 64px;
 }
 
 html,
@@ -46,11 +50,20 @@ html {
   padding-top: 72px;
 }
 
+.app-main.overflow-is-hidden {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
 /* HEADER SECTION */
 .app-nav-wrapper {
   box-shadow: var(--bg-shadow) 0px 0px 8px 0px;
   width: 100%;
+  min-height: var(--nav-height);
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   z-index: 10;
   background-color: var(--bg-second);
@@ -61,12 +74,16 @@ html {
   height: fit-content;
   justify-content: space-between;
   align-content: center;
+  align-items: center;
   padding: 0 16px;
 }
 
 .app-nav__routes-and-actions {
   padding: 16px 0;
+}
 
+.app-nav__routes-and-actions.mobile {
+  padding: 0;
 }
 
 .app-nav__routes-and-actions__routes__a {
@@ -115,6 +132,115 @@ html {
   margin-right: 0;
 }
 /* HEADER SECTION ENDS */
+
+/* SIDEBAR SECTION */
+.app-sidebar {
+  width: 420px;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-alt);
+  box-shadow: 10px 1px 0px rgba(0, 0, 0, 0.05);
+  transition: margin-right 0.15s ease-in-out;
+
+  position: fixed;
+  z-index: 9;
+  right: 0;
+  margin-right: -420px;
+  padding-top: var(--nav-height);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.app-sidebar:before {
+  background-color: transparent;
+}
+
+.app-sidebar.show {
+  margin-right: 0;
+  transition: margin-right 0.3s ease-in-out;
+}
+
+.app-sidebar.show:before {
+  content: "";
+  width: 100%;
+  background-color: rgba(0,0,0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
+  z-index: 8;
+}
+
+.app-sidebar__body {
+  background-color: var(--bg-alt);
+  height: 100%;
+  padding: 16px 0;
+  z-index: 10;
+}
+
+.app-sidebar__body .app-nav__routes-and-actions__routes__a {
+  width: 100%;
+  display: block;
+}
+
+.app-sidebar__body .app-nav__routes-and-actions__routes__a--active::after {
+  bottom: -16px;
+  height: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.app-sidebar__body__theme-toggle {
+  color: rgba(var(--tx-rgb), 0.75);
+  padding: 0px 20px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.app-sidebar__body__theme-toggle:focus {
+  box-shadow: none;
+  outline: none;
+}
+/* SIDEBAR SECTION ENDS */
+
+/* SWITCH SECTION */
+.switch__wrapper {
+  border-radius: 100px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px 6px;
+  height: 24px;
+  width: 48px;
+  cursor: pointer;
+  transition: all 0.3s ease-out 0s;
+  background-color: var(--bg-grey);
+}
+
+.switch__wrapper--checked {
+  background-color: var(--base);
+}
+
+.switch__wrapper__input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-out 0s;
+  transform: translateX(0);
+}
+
+.switch__wrapper__input:checked {
+  transform: translateX(22px);
+}
+/* SWITCH SECTION ENDS */
 
 /* CATEGORIES SECTION */
 .categories-section__ul {
@@ -296,7 +422,7 @@ html {
 
 .asset-details-section__card {
   border-radius: 10px;
-  background-color: rgb(48, 51, 57);
+  background-color: var(--bg-alt);
   border: 1px solid var(--bdr-grey);
   color: rgb(138, 147, 155);
 }
@@ -326,13 +452,12 @@ html {
 
 .asset-details-section__card__header {
   background-color: rgb(38, 43, 47);
-  border-bottom: 1px solid rgb(21, 27, 34);
+  border-bottom: 1px solid var(--bdr-grey);
   color: var(--tx-main);
 }
 
-.asset-details-section__card.light {
-  background-color: rgb(251, 253, 255);
-  color: rgb(112, 122, 131);
+.light .asset-details-section__card__header {
+  background-color: var(--bg-second);
 }
 
 .asset-details-section__card__unit {
@@ -395,8 +520,9 @@ html {
 }
 
 .light .asset-details-section__card__button--offer:hover {
+  background-color: rgb(32, 129, 226);
   border: 1px solid  var(--base);
-  color:  var(--base);
+  color:  var(--bg-second);
 }
 /* ASSET DETAILS SECTION ENDS */
 

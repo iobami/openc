@@ -1,11 +1,15 @@
 import Link from 'next/link';
-import React from 'react';
-import { useActiveRoute } from '../hooks';
-import { routes } from '../utils';
+import React, { useContext } from 'react';
+import { Routes } from '.';
+import { AppContext, AppStateType } from '../context';
+import { routes, upcomingFeature } from '../utils';
+import Hamburger from './hamburger';
 import { AccountOutline, WalletIcon } from './svgs';
 
 export default function Header() {
-  const [isActive] = useActiveRoute();
+  const [{ showNavbar }, { setShowNavbar }] = useContext<AppStateType>(AppContext);
+
+  const handleHamburger = () => (setShowNavbar ? setShowNavbar(!showNavbar) : null);
 
   return (
     <nav className="app-nav-wrapper">
@@ -18,18 +22,18 @@ export default function Header() {
           </a>
         </Link>
 
-        <div className="app-nav__routes-and-actions flex justify-end items-center">
-          <div className="app-nav__routes-and-actions__routes">
-            <Link href={routes.entry.path}>
-              <a className={`app-nav__routes-and-actions__routes__a ${isActive(routes.entry.path) ? 'app-nav__routes-and-actions__routes__a--active' : ''}`} href={routes.entry.path}>Marketplace</a>
-            </Link>
-          </div>
+        <div className="app-nav__routes-and-actions hidden lg:flex justify-end items-center">
+          <Routes />
 
           <div className="app-nav__routes-and-actions__actions flex items-center">
             <AccountOutline />
 
-            <WalletIcon />
+            <WalletIcon onClick={upcomingFeature} />
           </div>
+        </div>
+
+        <div className="app-nav__routes-and-actions mobile block lg:hidden">
+          <Hamburger open={showNavbar || false} handleHamburger={handleHamburger} />
         </div>
       </div>
     </nav>

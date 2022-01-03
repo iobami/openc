@@ -4,7 +4,10 @@ import { useRouter } from 'next/router';
 import { getTheme, toggleTheme } from './utils';
 
 export type AppStateType = Array<{
+  showNavbar?: boolean;
   theme?: 'dark' | 'light';
+
+  setShowNavbar?: React.Dispatch<React.SetStateAction<boolean>>;
   setTheme?: React.Dispatch<React.SetStateAction<string>>;
 }>;
 
@@ -21,11 +24,12 @@ const AppProvider = (props: IProps) => {
 
   const router = useRouter();
 
+  const [showNavbar, setShowNavbar] = useState(false);
   const [theme, setTheme] = useState(defaultTheme);
 
-  const state = { theme };
+  const state = { showNavbar, theme };
 
-  const setState = { setTheme };
+  const setState = { setShowNavbar, setTheme };
 
   useEffect(() => {
     const mode = getTheme() || defaultTheme;

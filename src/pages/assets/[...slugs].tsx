@@ -31,8 +31,8 @@ export default function AssetDetails({ item }: IProps) {
   const hasOwner = !!item.node?.owner?.address;
 
   return (
-    <section className="asset-details-section">
-      <div className="asset-details-section__wrapper lg:flex flex-row">
+    <section className={`asset-details-section ${theme}`}>
+      <div className="asset-details-section__wrapper pt-20 lg:pt-3 lg:flex flex-row">
         <div className="lg:w-5/12 px-3  mb-8">
           <Title mobile node={item.node} />
 

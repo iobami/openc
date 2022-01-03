@@ -33,7 +33,7 @@ const Home = (props: IProps) => {
       </Head>
 
       <section className="market-section">
-        <h1 className="market-section__h1-title text-center text-3xl lg:text-5xl xl:text-7xl font-bold mb-10">
+        <h1 className="market-section__h1-title text-center text-3xl lg:text-5xl 2xl:text-7xl font-bold mb-10">
           Market Place
         </h1>
 
