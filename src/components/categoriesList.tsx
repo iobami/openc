@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
-import { useActiveTab } from '../hooks';
+import { useActiveRoute } from '../hooks';
 import { categories } from '../utils';
 
 export default function CategoriesList() {
-  const isActive = useActiveTab();
+  const [, isActive] = useActiveRoute();
 
   return (
     <section className="categories-section">

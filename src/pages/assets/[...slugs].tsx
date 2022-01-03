@@ -11,10 +11,10 @@ interface IProps {
   item: CollectionType;
 }
 
-const Title = ({ mobile, node }: { mobile?: boolean; node: { name: string } }) => (
+const Title = ({ mobile, node }: { mobile?: boolean; node: { name: string; slug: string } }) => (
   <>
     <div className={`${mobile ? 'flex lg:hidden' : 'hidden lg:flex'} justify-between items-center mb-3`}>
-      <h5 className="asset-details-section__owner text-lg lg:text-xl xl:text-2xl">Sketchoo sdoine</h5>
+      <h5 className="asset-details-section__owner text-lg lg:text-xl xl:text-2xl">{node.slug.replace(/-/g, ' ')}</h5>
     </div>
 
     <h2 className={`${mobile ? 'block lg:hidden' : 'hidden lg:block'} asset-details-section__title text-3xl md:text-4xl font-semibold mb-8`}>{node.name}</h2>
@@ -116,8 +116,8 @@ export default function AssetDetails({ item }: IProps) {
                 </span>
               </div>
 
-              <div className={`asset-details-section__card__actions flex items-center ${theme}`}>
-                <button onClick={upcomingFeature} type="button" className="asset-details-section__card__button items-center w-full lg:w-52 lg:mr-3">
+              <div className={`asset-details-section__card__actions lg:flex items-center ${theme}`}>
+                <button onClick={upcomingFeature} type="button" className="asset-details-section__card__button items-center w-full lg:w-52 lg:mr-3 mb-3 lg:mb-0">
                   <CreditCard className="mr-3" />
 
                   Buy now
@@ -142,8 +142,10 @@ export default function AssetDetails({ item }: IProps) {
                 <div className="flex mb-2">
                   <span className="mr-2">Created by</span>
 
-                  <a href={`${config.ETHERSCAN_URL}/${item.node.owner?.address}`} target="_blank" rel="noopener noreferrer">
+                  <a className="flex justify-center items-center" href={`${config.ETHERSCAN_URL}/${item.node.owner?.address}`} target="_blank" rel="noopener noreferrer">
                     {item.node.owner?.user?.publicUsername}
+
+                    <img className="ml-2" src="/imgs/verified.png" alt="verified" height={18} width={18} />
                   </a>
                 </div>
               )}
