@@ -5,6 +5,7 @@ import { AppContext, AppStateType } from '../context';
 import { routes, upcomingFeature } from '../utils';
 import Hamburger from './hamburger';
 import { AccountOutline, WalletIcon } from './svgs';
+import ThemeToggle from './themeToggle';
 
 export default function Header() {
   const [{ showNavbar }, { setShowNavbar }] = useContext<AppStateType>(AppContext);
@@ -26,7 +27,15 @@ export default function Header() {
           <Routes />
 
           <div className="app-nav__routes-and-actions__actions flex items-center">
-            <AccountOutline />
+            <div className="dropdown__wrapper relative flex items-center">
+              <AccountOutline />
+
+              <div className="dropdown__item__wrapper absolute">
+                <div className="dropdown__item">
+                  <ThemeToggle />
+                </div>
+              </div>
+            </div>
 
             <WalletIcon onClick={upcomingFeature} />
           </div>

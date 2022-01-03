@@ -60,7 +60,7 @@ html {
 .app-nav-wrapper {
   box-shadow: var(--bg-shadow) 0px 0px 8px 0px;
   width: 100%;
-  min-height: var(--nav-height);
+  height: var(--nav-height);
   position: fixed;
   display: flex;
   align-items: center;
@@ -71,7 +71,7 @@ html {
 
 .app-nav {
   display: flex;
-  height: fit-content;
+  height: 100%;
   justify-content: space-between;
   align-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ html {
 }
 
 .app-nav__routes-and-actions {
-  padding: 16px 0;
+  height: 100%;
 }
 
 .app-nav__routes-and-actions.mobile {
@@ -109,7 +109,7 @@ html {
   bottom: -22px;
   content: "";
   display: block;
-  height: 4px;
+  height: 5px;
   left: 0px;
   position: absolute;
   width: 100%;
@@ -117,18 +117,25 @@ html {
   border-top-right-radius: 4px;
 }
 
-.app-nav__routes-and-actions__actions svg {
+.app-nav__routes-and-actions__actions {
+  height: 100%;
+}
+
+.app-nav__routes-and-actions__actions > svg,
+.app-nav__routes-and-actions__actions > div > svg {
   margin: 0 20px;
   color: rgba(var(--tx-rgb), 0.65);
   transition: 0.2s ease-in-out;
   cursor: pointer;
 }
 
-.app-nav__routes-and-actions__actions svg:hover {
+.app-nav__routes-and-actions__actions > svg:hover,
+.app-nav__routes-and-actions__actions > div > svg:hover {
   color: rgba(var(--tx-rgb), 0.95);
 }
 
-.app-nav__routes-and-actions__actions svg:last-child {
+.app-nav__routes-and-actions__actions > svg:last-child,
+.app-nav__routes-and-actions__actions > div > svg:last-child {
   margin-right: 0;
 }
 /* HEADER SECTION ENDS */
@@ -241,6 +248,55 @@ html {
   transform: translateX(22px);
 }
 /* SWITCH SECTION ENDS */
+
+/* DROPDOWN SECTION */
+.dropdown__wrapper {
+  height: 100%;
+}
+
+.dropdown__item__wrapper {
+  min-width: 250px;
+  min-height: 56px;
+  max-height: 0;
+  display: block;
+  background-color: var(--bg-alt);
+  box-shadow: var(--bg-shadow) 0px 0px 8px 0px;
+  border-radius: 0 0 10px 10px;
+  top: 66px;
+  right: 0;
+  z-index: 11;
+
+  visibility: hidden;
+  margin-top: -1000px;
+  transition-delay: 0.2s;
+}
+
+.dropdown__wrapper:hover .dropdown__item__wrapper,
+.dropdown__item__wrapper:hover {
+  visibility: visible;
+  margin-top: 0;
+  height: auto;
+  max-height: 100%;
+}
+
+.dropdown__item {
+  padding: 16px;
+  transition: 0.2s ease-in-out;
+}
+
+.dropdown__item:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.dropdown__item:hover {
+  background-color: var(--bg-second);
+}
+
+.dropdown__item .app-sidebar__body__theme-toggle.mt-20 {
+  margin: 0;
+  padding: 0;
+}
+/* DROPDOWN SECTION ENDS */
 
 /* CATEGORIES SECTION */
 .categories-section__ul {
