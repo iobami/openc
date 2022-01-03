@@ -1,5 +1,7 @@
 import { NextApiRequest } from 'next';
 import React, { useContext } from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import {
   Coin, CreditCard, Eye, Tag,
 } from '../../components';
@@ -36,7 +38,7 @@ export default function AssetDetails({ item }: IProps) {
         <div className="lg:w-5/12 px-3  mb-8">
           <Title mobile node={item.node} />
 
-          <img className="asset-details-section__asset-img mb-3" height={500} width="100%" src={item.node.banner} alt="" />
+          <LazyLoadImage alt={item.node.name} className="asset-details-section__asset-img mb-3" height={500} width="100%" placeholderSrc="/imgs/skeleton.gif" src={item.node.banner} />
 
           <div className="asset-details-section__card rt-none p-0">
             <div className="asset-details-section__card__header">

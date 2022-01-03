@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { CollectionType, routes } from '../utils';
 import { Coin } from './svgs';
 
@@ -17,7 +19,7 @@ export default function NftCard(props: IProps) {
   return (
     <Link href={`${routes.assets.path}/${item.node.slug}/${item.node.id}`}>
       <a className="items-grid-wrapper__item" href={`${item.node.slug}/${item.node.id}`}>
-        <img className="items-grid-wrapper__item__img" height="100%" width="100%" src={item.node.banner} alt="" />
+        <LazyLoadImage alt={item.node.name} className="items-grid-wrapper__item__img" height="100%" width="100%" placeholderSrc="/imgs/skeleton.gif" src={item.node.banner} />
 
         <div className="items-grid-wrapper__item__content">
           <div className="flex justify-center items-center mb-2">

@@ -82,6 +82,10 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .items-grid-wrapper__item {
+    height: 335px;
+  }
+
   .asset-details-section {
     width: 100%;
   }

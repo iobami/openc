@@ -12,6 +12,7 @@
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-lazy-load-image-component": "^1.5.1",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-actions": "^2.6.5",
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@types/node": "17.0.5",
     "@types/react": "17.0.38",
+    "@types/react-lazy-load-image-component": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "eslint": "^7.28.0",
