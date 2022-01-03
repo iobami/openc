@@ -1,16 +1,16 @@
 import collections from './mock.json';
+import collection from './mockOne.json';
 
 export { getTheme, toggleTheme } from './theme';
 export { default as routes } from './routes';
 
 export const categories = Object.keys(collections);
 
-const [collectionItem] = collections.top;
-export type CollectionType = ReturnType<() => typeof collectionItem>;
+export type CollectionType = ReturnType<() => typeof collection>;
 
 export const allCollections: Array<CollectionType> = (() => {
   const newCollections: Array<CollectionType> = [];
-  const arrayOfCollections = Object.values(collections);
+  const arrayOfCollections = Object.keys(collections).map((key) => collections[key]);
 
   arrayOfCollections.forEach((item) => newCollections.push(...item));
 

@@ -26,10 +26,6 @@ const Title = ({ mobile, node }: { mobile?: boolean; node: { name: string; slug:
 export default function AssetDetails({ item }: IProps) {
   const [{ theme }] = useContext<AppStateType>(AppContext);
 
-  if (typeof item === 'string' || typeof item.node === 'number') {
-    return null;
-  }
-
   const hasOwner = !!item.node?.owner?.address;
 
   return (
