@@ -89,4 +89,8 @@
   .asset-details-section {
     width: 100%;
   }
+
+  .app-sidebar.show {
+    width: 100%;
+  }
 }

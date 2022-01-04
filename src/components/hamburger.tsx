@@ -52,7 +52,7 @@ export default function Hamburger(props: IProps) {
           }
           
           .navbar-toggler.show span:nth-child(3) {
-            transform: translateY(-7px) rotateZ(45deg);
+            transform: translateY(-6px) rotateZ(45deg);
           }
         `}
       </style>
