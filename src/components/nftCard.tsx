@@ -16,9 +16,11 @@ export default function NftCard(props: IProps) {
     return null;
   }
 
+  const href = `${routes.assets.path}/${item.node.slug}/${item.node.id}`;
+
   return (
-    <Link href={`${routes.assets.path}/${item.node.slug}/${item.node.id}`}>
-      <a className="items-grid-wrapper__item" href={`${item.node.slug}/${item.node.id}`}>
+    <Link href={href}>
+      <a className="items-grid-wrapper__item" href={href}>
         <LazyLoadImage alt={item.node.name} className="items-grid-wrapper__item__img" height="100%" width="100%" placeholderSrc="/imgs/skeleton.gif" src={item.node.banner} />
 
         <div className="items-grid-wrapper__item__content">
