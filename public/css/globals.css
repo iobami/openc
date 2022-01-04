@@ -84,6 +84,7 @@ html {
 
 .app-nav__routes-and-actions.mobile {
   padding: 20px;
+  padding-right: 0;
 }
 
 .app-nav__routes-and-actions__routes__a {

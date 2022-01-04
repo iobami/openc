@@ -9,7 +9,7 @@ export default function Sidebar() {
   const [{ showNavbar, theme }, { setShowNavbar }] = useContext<AppStateType>(AppContext);
 
   const callback = () => {
-    if (setShowNavbar) {
+    if (showNavbar && setShowNavbar) {
       setShowNavbar(false);
     }
   };
